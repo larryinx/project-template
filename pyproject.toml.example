@@ -1,0 +1,54 @@
+[project]
+name = "todo_pkg_name"
+version = "0.0.1"
+description = "Add your description here"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "TODO_your_name", email = "TODO_your@email.com" }]
+requires-python = ">=3.14"
+dependencies = ["seutil>=0.9.0"]
+
+[dependency-groups]
+dev = [
+    "coverage>=7.13.5",
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.11",
+    "ty>=0.0.31",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.7,<0.12.0"]
+build-backend = "uv_build"
+
+# testing (pytest) and coverage (coverage, pytest-cov)
+[tool.coverage.run]
+source_pkgs = ["todo_pkg_name"]
+branch = true
+
+[tool.coverage.paths]
+todo_pkg_name = ["src/todo_pkg_name", "*/todo_pkg_name/src/todo_pkg_name"]
+
+[tool.coverage.report]
+exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-markers --strict-config --cov --cov-report xml:cov.xml"
+testpaths = ["tests"]
+xfail_strict = true
+
+
+# linting (ruff)
+[tool.ruff]
+target-version = "py314"
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle error
+    "F",  # pyflakes
+    "I",  # isort
+    "UP", # pyupgrade
+    "B",  # flake8-bugbear
+]
+isort.known-first-party = ["todo_pkg_name"]

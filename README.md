@@ -1,13 +1,14 @@
 # project-template
 
-## Environment Setup (Managed by uv and based on Python 3.12 and Linux)
+## Environment Setup (Example of `uv` project)
 
 1. Install [uv](https://docs.astral.sh/uv/) if you haven't.
 
 2. Setup and activate the Python virtual environment for this project:
 
 ```bash
-uv sync
+uv init
+uv run main.py
 source .venv/bin/activate
 ```
 
