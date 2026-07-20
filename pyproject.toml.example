@@ -21,6 +21,9 @@ dev = [
 requires = ["uv_build>=0.11.7,<0.12.0"]
 build-backend = "uv_build"
 
+[tool.uv]
+override-dependencies = ["ijson==3.5.1"]
+
 # testing (pytest) and coverage (coverage, pytest-cov)
 [tool.coverage.run]
 source_pkgs = ["todo_pkg_name"]
